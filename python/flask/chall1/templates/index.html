@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Table</title>
+</head>
+<body>
+    <h1>CSV Table</h1>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Occupation</th>
+        </tr>
+        {% for row in data %}
+            <tr>
+                <td>{{ row['Name'] }}</td>
+                <td>{{ row['Age'] }}</td>
+                <td>{{ row['Occupation'] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p><a href="{{ url_for('download_csv', filename='my_data.csv') }}">Download CSV</a></p>
+</body>
+</html>
