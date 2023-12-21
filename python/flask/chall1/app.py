@@ -4,7 +4,6 @@ from io import StringIO
 
 app = Flask(__name__)
 
-# Sample data for the CSV
 csv_data = [
     {'Name': 'John Doe', 'Age': 25, 'Occupation': 'Engineer'},
     {'Name': 'Jane Smith', 'Age': 30, 'Occupation': 'Designer'},
@@ -23,10 +22,8 @@ def download_csv():
     csv_writer.writeheader()
     csv_writer.writerows(csv_data)
 
-    # Get the filename from the 'filename' query parameter or use a default
     filename = request.args.get('filename', 'data.csv')
 
-    # Set up response headers
     response_headers = {
         'Content-Type': 'text/csv',
         'Content-Disposition': f'attachment; filename={filename}',
